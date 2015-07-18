@@ -1,0 +1,81 @@
+// bower:scss
+// endbower
+
+$primary-color: #333;
+$mobile-height-max: 700px;
+$backgroundImageUrl: "/images/background.jpg";
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  min-height: 500px;
+  text-align: center;
+}
+
+body {
+  background: #fafafa;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: larger;
+  color: #333;
+}
+
+#main {
+  height: 100%
+}
+
+#content-top {
+  height: 40%;
+  background: url($backgroundImageUrl) no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+#content-bottom {}
+
+h1 {
+  color: white;
+  text-align: left;
+  padding: 10pt;
+  margin: 0px;
+  position: absolute;
+  bottom: 0px;
+  display: block;
+
+  @media (max-height: $mobile-height-max) {
+    visibility: hidden;
+  }
+}
+
+.avatar {
+  width: 192px;
+  height: 192px;
+  border-radius: 50%;
+  background-color: #525252;
+  align-self: center;
+  position: relative;
+  top: -96px;
+  margin: 0px auto -96px;
+  display: block;
+  border: 5px solid white;
+}
+
+.icons {
+  margin: 0px auto;
+  text-align: center;
+
+  a {
+    color: $primary-color;
+    font-size: 32pt;
+    margin: 8px;
+    text-decoration: none;
+    transition: transform 0.2s ease-out, text-shadow 0.2s ease-out, filter 0.2s ease-out;
+    text-shadow: 0 0 0 rgba(#000, 0);
+  }
+
+  a:hover {
+    transform: translateY(-4px) translateX(4px);
+    text-shadow: 0 4px 0 rgba(#000, 0.1);
+  }
+
+}
