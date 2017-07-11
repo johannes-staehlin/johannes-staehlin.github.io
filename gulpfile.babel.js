@@ -161,7 +161,10 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
 
 gulp.task('deploy', ['build'], function () {
   return gulp.src('dist')
-    .pipe($.subtree())
+    .pipe($.subtree({
+      remote: 'upstream',
+      branch: 'master'
+    }))
     .pipe($.clean());
 });
 
