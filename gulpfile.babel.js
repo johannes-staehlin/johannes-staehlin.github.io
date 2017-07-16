@@ -46,11 +46,11 @@ gulp.task('html', ['styles'], () => {
 
   return gulp.src('app/*.html')
     .pipe(assets)
-    .pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
+    .pipe($.if('**/*.js', $.uglify()))
+    .pipe($.if('**/*.css', $.minifyCss({compatibility: '*'})))
     .pipe(assets.restore())
     .pipe($.useref())
-    .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
+    .pipe($.if('**/*.html', $.minifyHtml({conditionals: true, loose: true})))
     .pipe(gulp.dest('dist'));
 });
 
@@ -163,7 +163,8 @@ gulp.task('deploy', ['build'], function () {
   return gulp.src('dist')
     .pipe($.subtree({
       remote: 'upstream',
-      branch: 'master'
+      branch: 'master',
+      force: true
     }))
     .pipe($.clean());
 });
